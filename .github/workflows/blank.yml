@@ -1,0 +1,12 @@
+on:
+  schedule:
+    - cron:  '0 */3 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Clone Repository
+          run: git clone git@github.com:liferay-latam/liferay-portal.git
+        - name: Sync master
+          run: git push origin upstream/master:master
