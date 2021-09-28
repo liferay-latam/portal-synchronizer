@@ -6,7 +6,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-        - name: Clone Repository
-          run: git clone git@github.com:liferay-latam/liferay-portal.git
+        - uses: actions/checkout@master
+          with:
+            name: liferay-latam/liferay-portal
         - name: Sync master
           run: git push origin upstream/master:master
