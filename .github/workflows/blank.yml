@@ -8,7 +8,7 @@ jobs:
     steps:
         - uses: actions/checkout@master
           with:
-            name: liferay-latam/liferay-portal
+            repository: liferay-latam/liferay-portal
             token: ${{ secrets.PAT_TOKEN }}
         - name: Sync master
           run: git push origin upstream/master:master
