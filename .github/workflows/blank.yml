@@ -12,3 +12,5 @@ jobs:
             token: ${{ secrets.PAT_TOKEN }}
         - name: Sync master
           run: git push origin upstream/master:master
+          env:
+            repo-token: ${{ secrets.PAT_TOKEN }}
