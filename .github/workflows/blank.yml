@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '*/3 * * * *'
+    - cron:  '0 */3 * * *'
 
 jobs:
   sync:
@@ -8,11 +8,15 @@ jobs:
     steps:
         - uses: actions/checkout@master
           with:
-            repository: liferay-latam/liferay-portal
+            repository: liferay/liferay-portal
+#             repository: liferay-latam/liferay-portal
 #             token: ${{ secrets.PAT_TOKEN }}
-        - run: git remote add upstream https://github.com/liferay/liferay-portal.git
-        - run: git fetch upstream
+        - run: git remote add latam https://github.com/liferay-latam/liferay-portal.git
+#         - run: git remote add upstream https://github.com/liferay/liferay-portal.git
+#         - run: git fetch --all
+#         - run: git fetch upstream
         - name: Sync master
-          run: git push origin upstream/master:master
+#           run: git push origin upstream/master:master
+          run: git push latam origin/master:master
           env:
             repo-token: ${{ secrets.PAT_TOKEN }}
